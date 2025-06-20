@@ -5,7 +5,52 @@
 <h1>
  Gastly
 </h1>
-<a href="https://pvpivs.com/searchStr.html?mon=Gastly&cp=All&r=1-1-1-1_1-1-1-1_1-1-1-1_1-1-10-10_f_f&m=50&slMax=35">Normal + Best buddy</a>
-[0,13,13],[0,14,15],[0,15,14],[0,15,15],[1,15,14],[2,15,14],[3,15,14],[3,15,15],[5,15,15],[15,15,15]
+<a href="https://pvpivs.com/searchStr.html?mon=Gastly&cp=All&r=1-1-1-1_1-1-1-1_1-1-10-10_f_f&slMax=35">Normal + Best buddy</a>
+[[0,13,13],[0,14,15],[0,15,14],[0,15,15],[1,15,14],[2,15,14],[3,15,14],[3,15,15],[5,15,15],[15,15,15]]
+
+<h1>
+Houndour
+</h1>
+<a href="https://pvpivs.com/searchStr.html?mon=Houndour&cp=All&r=1-1-1-1_1-1-1-1_1-1-10-10_f_f&slMax=35">Normal + Best buddy</a>
+[[0,10,7],[0,12,14],[0,13,13],[0,14,15],[0,15,14],[0,15,15],[7,15,12],[15,15,15]]
+
+<h1>
+Electrike
+</h1>
+<a href="https://pvpivs.com/searchStr.html?mon=Electrike&cp=All&r=1-1-1-1_1-1-1-1_1-1-10-10_f_f&slMax=35">Normal</a>
+<a href="https://pvpivs.com/searchStr.html?mon=Electrike&cp=All&r=1-1-1-1_1-1-1-1_1-1-1-1_f_f&m=50&slMax=35>Best">Best buddy</a>
+[[0,12,11],[0,13,13],[0,14,14],[0,15,13],[0,15,14],[0,15,15],[2,15,15],[3,15,15],[15,15,15]]
+
+<h1>
+Furfrou
+</h1>
+<a href="https://pvpivs.com/searchStr.html?mon=Furfrou&cp=All&r=1-1-1-1_1-1-1-1_1-1-10-10_f_f&slMax=35">Normal</a>
+<a href="https://pvpivs.com/searchStr.html?mon=Furfrou&cp=All&r=1-1-1-1_1-1-1-1_1-1-1-1_f_f&m=50&slMax=35>Best">Best buddy</a>
+[[1,14,15],[2,15,15],[15,15,15]]
+
+
+
+
+
+
+<script>
+// Find all array-like text in the body
+document.body.innerHTML = document.body.innerHTML.replace(
+  /\[\s*(\[(?:\d+,?)+\](?:,\s*\[(?:\d+,?)+\])*)\s*\]/g,
+  function(match, arrays) {
+    // Split into individual arrays
+    const rows = arrays.match(/\[(.*?)\]/g);
+    if (!rows) return match;
+    // Build table HTML
+    let table = '<table border="1" style="margin:10px 0;">';
+    rows.forEach(row => {
+      const cells = row.replace(/[\[\]\s]/g, '').split(',');
+      table += '<tr>' + cells.map(cell => `<td>${cell}</td>`).join('') + '</tr>';
+    });
+    table += '</table>';
+    return table;
+  }
+);
+</script>
 </body>
 </html>

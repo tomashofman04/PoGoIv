@@ -1,7 +1,11 @@
-from flask import Flask, jsonify, request
-from src.main import fetch_target_iv
+from flask import Flask, jsonify, request, send_from_directory
+from main import fetch_target_iv
 
 app = Flask(__name__)
+
+@app.route('/')
+def index():
+    return send_from_directory('.', 'index.html')
 
 @app.route('/api/targetiv')
 def targetiv():

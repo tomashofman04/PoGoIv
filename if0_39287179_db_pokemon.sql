@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: sql306.infinityfree.com
--- Generation Time: Jun 21, 2025 at 05:33 AM
+-- Generation Time: Jun 21, 2025 at 05:53 AM
 -- Server version: 10.6.19-MariaDB
 -- PHP Version: 7.2.22
 
@@ -33,7 +33,8 @@ CREATE TABLE `pokemon` (
   `Name` varchar(250) NOT NULL,
   `Attack` int(11) NOT NULL,
   `Defense` int(11) NOT NULL,
-  `Hp` int(11) NOT NULL
+  `Hp` int(11) NOT NULL,
+  `NeedBestBuddy` bit(1) NOT NULL DEFAULT b'0'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --

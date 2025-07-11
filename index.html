@@ -4,16 +4,15 @@
   <title>PoGoIv Search</title>
 </head>
 <body>
-  <button onclick="getTargetIV()">Get TargetIV</button>
+  <button onclick="getIVs()">Get IVs</button>
   <pre id="output"></pre>
   <script>
-    function getTargetIV() {
-      // You can change the URL as needed or make it user input
-      const url = encodeURIComponent("https://pvpivs.com/searchStr.html?mon=Jangmo_O&cp=All&r=1-1-1-1_1-1-1-1_1-1-1-1_f_f&slMax=35");
-      fetch(`/api/targetiv?url=${url}`)
-        .then(res => res.json())
+    function getIVs() {
+      // Call the PHP script directly (adjust path if needed)
+      fetch('iv_scraper.php')
+        .then(res => res.text())
         .then(data => {
-          document.getElementById('output').textContent = JSON.stringify(data.result, null, 2);
+          document.getElementById('output').textContent = data;
         })
         .catch(err => {
           document.getElementById('output').textContent = 'Error: ' + err;
